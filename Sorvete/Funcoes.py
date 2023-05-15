@@ -185,3 +185,65 @@ def inserirPedido():
     print("Cadastro de Pedido")
 
     pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), input("Digite a quantidade. "), None, None)
+
+    print("Pedido cadastrado com sucesso!")
+
+def atualizarCliente():
+
+    visualizarClientes()
+
+    id = input("Digite o id do cliente que deseja atualizar: ")
+    nome = input("Digite o novo nome do cliente: ")
+
+    manipularBanco(f'''
+    
+    UPDATE "Clientes"
+    SET
+        "Nome" = '{nome}'
+    WHERE 
+        "Id" = {id}
+
+    ''')
+
+def atualizarProduto():
+
+    visualizarProdutos()
+
+    id = input("Digite o id do produto que deseja atualizar: ")
+    nome = input("DIgite o nome do produto: ")
+    peso = input("Digite o peso do produto: ")
+    preço = input("Digite o preço do produto: ")
+    estoque = input("Digite o estoque do produto: ")
+
+    manipularBanco(f'''
+    
+    UPDATE "Produtos"
+    SET
+       "Nome" = '{nome}'     
+       "peso" = {peso}     
+       "preço" = {preço}    
+       "estoque" = {estoque}  
+    WHERE
+        "Id" = {id}      
+    
+    ''')
+def atualizarPedido():
+
+    visualizarPedidos()
+
+    id = input("Digite o id do produto que deseja atualizar: ")
+    qtd = input("Digite a quantidade do produto: ")
+    
+
+    manipularBanco(f'''
+    
+    UPDATE "Pedidos"
+    SET
+       "Nome" = '{nome}'     
+       "peso" = {peso}     
+       "preço" = {preço}    
+       "estoque" = {estoque}  
+    WHERE
+        "Id" = {id}      
+    
+    ''')    

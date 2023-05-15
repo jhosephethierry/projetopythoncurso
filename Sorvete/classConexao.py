@@ -1,4 +1,4 @@
-import Funcoes as fx
+
 import psycopg2
 
 class Conexao:
