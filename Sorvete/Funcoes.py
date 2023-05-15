@@ -51,7 +51,7 @@ def visualizarClientes():
         
         print("Não há clientes cadastrados.")
 
-    print("")
+    input("Enter...")
 
 def visualizarProdutos():
 
@@ -68,7 +68,12 @@ def visualizarProdutos():
         print("")
 
         for produto in produtos:
-            print(f"{produto[0]} | Sabor - {produto[1]} | Peso - {produto[2]} | Preço - R$ {produto[3]} | Quantidade - {produto[4]}")
+            print(f'''
+                ID - {produto[0]} 
+                Sabor - {produto[1]} 
+                Peso - {produto[2]} 
+                Preço - R$ {produto[3]} 
+                Quantidade - {produto[4]}''')
     
     else:
         
@@ -91,7 +96,36 @@ def visualizarPedidos():
         print("")
 
         for pedido in pedidos:
-            print(f"{pedido[0]} | {pedido[1]} | {pedido[2]} | {pedido[3]} | {pedido[4]} | {pedido[5]}")
+
+            produto = consultarBanco(f'''
+         
+            SELECT * FROM "Produtos"
+            WHERE
+            "Id" = {pedido[2]}
+         
+         ''')[0]
+
+
+            cliente = consultarBanco(f'''
+         
+            SELECT * FROM "Clientes"
+            WHERE
+            "Id" = {pedido[1]}
+         
+         ''')[0]
+
+            print(f'''
+            
+            ID - {pedido[0]}
+            Nome Cliente - {cliente[1]}
+            ID do produto - {pedido[2]}
+            Sabor do produto - {produto[1]}
+            quantidade - {pedido[3]}
+            valor - {pedido[4]}
+            
+            
+            ''')
+            print(f" | {pedido[1]} | {pedido[2]} | {pedido[3]} | {pedido[4]} | {pedido[5]}")
 
     else:
         
@@ -183,8 +217,30 @@ def inserirProduto():
 def inserirPedido():
 
     print("Cadastro de Pedido")
-
+    
+    
     pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), input("Digite a quantidade. "), None, None)
+
+    produtoEscolhido = consultarBanco(f'''
+    SELECT * FROM "Produtos"
+    WHERE "Id" = {pedido._idProduto}
+    ''')[0]
+
+    produto = Produto(produtoEscolhido[0], produtoEscolhido[1], produtoEscolhido[2], produtoEscolhido[3],produtoEscolhido[4])
+
+    if int(produto._estoque) < int(pedido._quantidade):
+        print("Não há estoque suficiente.")
+        return "Não há estoque suficiente."
+    else: 
+        produto._estoque = int(produto._estoque) - int(pedido._quantidade)
+
+    pedido._valorTotal = float(produto._preço) * float(pedido._quantidade)
+
+    manipularBanco(pedido.sqlInserirPedido())
+
+    manipularBanco(produto.sqlAtualizarProduto())
+
+    print(f"Compra de {pedido._quantidade} {produto._nome} por R$ {pedido._valorTotal} foi cadastrada")
 
     print("Pedido cadastrado com sucesso!")
 
@@ -231,19 +287,20 @@ def atualizarPedido():
 
     visualizarPedidos()
 
-    id = input("Digite o id do produto que deseja atualizar: ")
+    id = input("Digite o id do pedido que deseja atualizar: ")
+    idCliente = input("Digite o id do Cliente que deseja atualizar: ")
+    idProduto = input("Digite o id do Produto que deseja atualizar: ")
     qtd = input("Digite a quantidade do produto: ")
-    
-
+ 
     manipularBanco(f'''
     
     UPDATE "Pedidos"
     SET
-       "Nome" = '{nome}'     
-       "peso" = {peso}     
-       "preço" = {preço}    
-       "estoque" = {estoque}  
+       "Id_Cliente" = {idCliente}     
+       "Id_Produto" = {idProduto}     
+       "Quantidade" = {qtd}      
     WHERE
         "Id" = {id}      
     
     ''')    
+    print("Pedido atualizado com sucesso!")
