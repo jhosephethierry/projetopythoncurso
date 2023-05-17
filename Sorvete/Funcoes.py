@@ -287,7 +287,13 @@ def inserirSabores():
             print("Digite uma opção válida.")
             print("")
 
+def escolherSabor():
 
+    print("Estes são os sabores disponíves.")
+
+    visualizarSabores()
+
+    
 
 def inserirPedido():
 
