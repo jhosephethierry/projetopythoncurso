@@ -22,6 +22,7 @@ def criarTabelas():
     
     "Id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "Nome" varchar(255) NOT NULL,
+    "Sabor" varchar(255) NOT NULL,
     "Peso" varchar(255) NOT NULL,
     "Preço" numeric(2) NOT NULL default 0,
     "Estoque" int NOT NULL default 0

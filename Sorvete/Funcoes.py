@@ -75,7 +75,7 @@ def visualizarProdutos():
 
         for produto in produtos:
             print(f'''
-                ID - {produto[0]} | Categoria - {produto[1]} | Sabor - {produto[2]} | Peso - {produto[3]} | Preço - R$ {produto[4]} | Estoque - {produto[5]}''')
+                ID - {produto[0]} | Produto - {produto[1]} | Sabor - {produto[2]} | Peso - {produto[3]} | Preço - R$ {produto[4]} | Estoque - {produto[5]}''')
             
         input("Enter...")
 
@@ -213,14 +213,14 @@ def inserirProduto():
 
     print("Cadastro de Produto")
 
-    produto = Produto(None, input("Digite o nome do produto. "), visualizarSabores(), input("Digite o peso. "), input("Digite o preço. R$ "), input("Digite o estoque. "))
+    produto = Produto(None, input("Digite o nome do produto. "), escolherSabor(), input("Digite o peso. "), input("Digite o preço. R$ "), input("Digite o estoque. "))
 
     manipularBanco(produto.sqlInserirProduto())
 
     print("Novo produto inserido com sucesso!")
 
 
-    op = input("Quer continuar inserindo produtos? S/N ")
+    op = input("Quer continuar inserindo produtos? s ou n? ")
     
     match op.upper():
 
@@ -294,12 +294,26 @@ def escolherSabor():
 
     visualizarSabores()
 
-    sabor = Sabor(input("Digite o Id do Sabor escolhido. "))
+    idSabor = input("Digite o id do sabor escolhido. ")
 
     saborEscolhido = consultarBanco(f'''
+    
     SELECT * FROM "Sabores"
-    WHERE "Id" = {sabor._idSabor}
+    WHERE "Id" = '{idSabor}'
+
     ''')[0]
+
+    sabor = Sabor(None,saborEscolhido[1])
+
+    manipularBanco(f'''
+    
+    UPDATE "Produtos"
+    SET
+        "Sabor" = '{sabor}'
+
+    ''')
+    print(f"Você escolheu {sabor}.")
+    input("Enter...")
 
 
     
