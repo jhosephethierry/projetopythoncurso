@@ -64,7 +64,7 @@ def visualizarProdutos():
     produtos = consultarBanco('''
 
     SELECT * FROM "Produtos"
-    ORDER BY "Id" ASC
+    ORDER BY "Nome" ASC
 
     ''')
 
@@ -75,7 +75,7 @@ def visualizarProdutos():
 
         for produto in produtos:
             print(f'''
-                ID - {produto[0]} | Produto - {produto[1]} | Sabor - {produto[2]} | Peso - {produto[3]} | Preço - R$ {produto[4]} | Estoque - {produto[5]}''')
+                Id - {produto[0]} | Produto - {produto[1]} | Sabor - {produto[2]} | Peso - {produto[3]} | Preço - R$ {produto[4]} | Estoque - {produto[5]}''')
             
         input("Enter...")
 
