@@ -257,7 +257,7 @@ def inserirSabores():
 
     manipularBanco(Sabor.sqlInserirSabor(sabor))
 
-    print("Novo sabore inserido com sucesso!")
+    print("Novo sabor inserido com sucesso!")
     print("")
 
 
@@ -288,9 +288,9 @@ def inserirSabores():
             print("Digite uma opção válida.")
             print("")
 
-def escolherSabor():
 
-    print("Estes são os sabores disponíves.")
+
+def escolherSabor():
 
     visualizarSabores()
 
@@ -303,7 +303,7 @@ def escolherSabor():
 
     ''')[0]
 
-    sabor = Sabor(None,saborEscolhido[1])
+    sabor = saborEscolhido[1]
 
     manipularBanco(f'''
     
@@ -313,7 +313,7 @@ def escolherSabor():
 
     ''')
     print(f"Você escolheu {sabor}.")
-    input("Enter...")
+    print("")
 
 
     
