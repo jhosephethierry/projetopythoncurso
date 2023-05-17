@@ -56,6 +56,8 @@ while True:
                     2 - Ver Produtos
                     3 - Atualizar Produto
                     4 - Deletar Produto
+                    5 - Inserir Sabores
+                    6 - Visualizar Sabores
                     0 - Voltar ao menu principal
                     
                     ''')
@@ -70,6 +72,10 @@ while True:
                             Func.atualizarProduto()
                         case "4":
                             Func.deletarProduto()
+                        case "5":
+                            Func.inserirSabores()
+                        case "6":
+                            Func.visualizarSabores()
                         case "0":
                             print("Voltando ao menu principal...")
                             break

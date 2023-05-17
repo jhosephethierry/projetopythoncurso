@@ -1,7 +1,8 @@
 from classCliente import Cliente
 from classProduto import Produto
+from classSabores import Sabor 
 from classPedido import Pedido
-from sabores import sabores_sorvete
+
 
 import psycopg2
 
@@ -89,8 +90,8 @@ def visualizarSabores():
 
     sabores = consultarBanco('''
 
-    SELECT * FROM "Produtos"
-    ORDER BY "Sabor" ASC
+    SELECT * FROM "Sabores"
+    ORDER BY "Id" ASC
 
     ''')
 
@@ -252,9 +253,9 @@ def inserirSabores():
 
     print("Cadastro de Sabores")
 
-    sabor = Produto(None, input("Digite o nome do sabor. "))
+    sabor = Sabor(None, input("Digite o nome do sabor. "))
 
-    manipularBanco(Produto.sqlInserirSabor(sabor))
+    manipularBanco(Sabor.sqlInserirSabor(sabor))
 
     print("Novo sabore inserido com sucesso!")
     print("")
@@ -293,7 +294,7 @@ def escolherSabor():
 
     visualizarSabores()
 
-    
+
 
 def inserirPedido():
 
@@ -302,15 +303,6 @@ def inserirPedido():
     
 
     pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), input("Digite a quantidade. "), None, None)
-    
-    print("Sabores: ")
-    contador = 1
-    for sabor in sabores_sorvete:
-        
-        print(f"{contador} - {sabor}")
-        contador += 1
-
-    saborEscolhido = input("Digite o numero do sabor que deseja: ")
 
     produtoEscolhido = consultarBanco(f'''
     SELECT * FROM "Produtos"
