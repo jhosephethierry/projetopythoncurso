@@ -21,6 +21,17 @@ class Produto:
 
         return sql
     
+    def sqlInserirSabor(self):
+
+        sql = f'''
+        
+        INSERT INTO "Sabores"
+        Values(default, '{self._sabor}')
+
+        '''
+
+        return sql
+    
     def sqlAtualizarProduto(self):
 
         sql = f'''

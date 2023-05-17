@@ -84,6 +84,34 @@ def visualizarProdutos():
 
     print("")
 
+
+def visualizarSabores():
+
+    sabores = consultarBanco('''
+
+    SELECT * FROM "Produtos"
+    ORDER BY "Sabor" ASC
+
+    ''')
+
+    if sabores:
+
+        print("Estes são os sabores cadastrados.")
+        print("")
+
+        for sabor in sabores:
+            print(f'''
+                Id - {sabor[0]} | Sabor - {sabor[1]}''')
+            
+        input("Enter...")
+
+    else:
+        
+        print("Não há sabores cadastrados.")
+
+    print("")
+
+
 def visualizarPedidos():
 
     pedidos = consultarBanco('''
@@ -184,7 +212,7 @@ def inserirProduto():
 
     print("Cadastro de Produto")
 
-    produto = Produto(None, input("Digite o nome do produto. "), input("Digite o peso. "), input("Digite o preço. R$ "), input("Digite o estoque. "))
+    produto = Produto(None, input("Digite o nome do produto. "), visualizarSabores(), input("Digite o peso. "), input("Digite o preço. R$ "), input("Digite o estoque. "))
 
     manipularBanco(produto.sqlInserirProduto())
 
@@ -211,6 +239,47 @@ def inserirProduto():
 
         case "s":
             visualizarProdutos()
+        case "n":
+            print("Saindo!")
+            print("") 
+        case _:
+            print("Digite uma opção válida.")
+            print("")
+
+
+
+def inserirSabores():
+
+    print("Cadastro de Sabores")
+
+    sabor = Produto(None, input("Digite o nome do sabor. "))
+
+    manipularBanco(Produto.sqlInserirSabor(sabor))
+
+    print("Novo sabore inserido com sucesso!")
+    print("")
+
+
+    op = input("Quer continuar inserindo sabores? s ou n? ")
+    
+    match op:
+
+        case "s":
+            inserirSabores()
+        case "n":
+            print("Saindo!")
+            print("")
+        case _:
+            print("Digite uma opção válida.")
+            print("")   
+        
+    
+    op = input("Quer visualizar seus clientes? s ou n? ")
+    
+    match op:
+
+        case "s":
+            visualizarSabores()
         case "n":
             print("Saindo!")
             print("") 
