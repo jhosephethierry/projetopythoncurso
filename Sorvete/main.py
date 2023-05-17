@@ -29,6 +29,7 @@ while True:
                     1 - Inserir Cliente
                     2 - Ver Clientes
                     3 - Atualizar Cliente
+                    4 - Deletar Cliente
                     0 - Voltar ao menu principal
                     
                     ''')
@@ -41,8 +42,11 @@ while True:
                             Func.visualizarClientes()
                         case "3":
                             Func.atualizarCliente()
+                        case "4":
+                             Func.deletarCliente()
                         case "0":
-                            breakpoint        
+                             print("Voltando ao menu principal...")
+                             break
             case "2":
                 
                 while True:
@@ -51,6 +55,7 @@ while True:
                     1 - Inserir Produto
                     2 - Ver Produtos
                     3 - Atualizar Produto
+                    4 - Deletar Produto
                     0 - Voltar ao menu principal
                     
                     ''')
@@ -63,8 +68,11 @@ while True:
                             Func.visualizarProdutos()
                         case "3":
                             Func.atualizarProduto()
+                        case "4":
+                            Func.deletarProduto()
                         case "0":
-                            breakpoint
+                            print("Voltando ao menu principal...")
+                            break
 
             case "3":
                 
@@ -74,6 +82,7 @@ while True:
                     1 - Inserir Pedido
                     2 - Ver Pedidos
                     3 - Atualizar Pedido
+                    4 - Deletar Pedido
                     0 - Voltar ao menu principal
                     
                     ''')
@@ -86,8 +95,11 @@ while True:
                             Func.visualizarPedidos()
                         case "3":
                             Func.atualizarPedido()
+                        case "4":
+                           Func.deletarPedido()
                         case "0":
-                            breakpoint
+                            print("Voltando ao menu principal...")
+                            break
             case "0":
                 print("Saindo...")
                 break

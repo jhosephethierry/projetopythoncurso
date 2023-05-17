@@ -1,6 +1,7 @@
 from classCliente import Cliente
 from classProduto import Produto
 from classPedido import Pedido
+from sabores import sabores_sorvete
 
 import psycopg2
 
@@ -38,6 +39,7 @@ def visualizarClientes():
     ORDER BY "Id" ASC
 
     ''')
+    
 
     if clientes:
 
@@ -45,8 +47,11 @@ def visualizarClientes():
         print("")
 
         for cliente in clientes:
-            print(f"{cliente[0]} | Nome - {cliente[1]}")
-
+            print(f'''
+            ID - {cliente[0]}
+            Nome - {cliente[1]}
+            ''')
+            
     else:
         
         print("Não há clientes cadastrados.")
@@ -69,12 +74,10 @@ def visualizarProdutos():
 
         for produto in produtos:
             print(f'''
-                ID - {produto[0]} 
-                Sabor - {produto[1]} 
-                Peso - {produto[2]} 
-                Preço - R$ {produto[3]} 
-                Quantidade - {produto[4]}''')
-    
+                ID - {produto[0]} | Categoria - {produto[1]} | Peso - {produto[2]} | Preço - R$ {produto[3]} | Estoque - {produto[4]}''')
+            
+        input("Enter...")
+
     else:
         
         print("Não há produtos cadastrados.")
@@ -90,9 +93,11 @@ def visualizarPedidos():
 
     ''')
 
+    input("Enter...")
+
     if pedidos:
 
-        print("Estes são os pedidos cadastrados.")
+        print("Estes são os pedidos cadastrados:")
         print("")
 
         for pedido in pedidos:
@@ -117,16 +122,16 @@ def visualizarPedidos():
             print(f'''
             
             ID - {pedido[0]}
-            Nome Cliente - {cliente[1]}
-            ID do produto - {pedido[2]}
-            Sabor do produto - {produto[1]}
-            quantidade - {pedido[3]}
-            valor - {pedido[4]}
+            Nome do Cliente - {cliente[1]}
+            ID do Produto - {pedido[2]}
+            Sabor do Produto - {produto[1]}
+            Quantidade - {pedido[3]}
+            Valor - R${pedido[4]},00
+            Data e Hora -  {pedido[5]}
             
             
             ''')
-            print(f" | {pedido[1]} | {pedido[2]} | {pedido[3]} | {pedido[4]} | {pedido[5]}")
-
+        input("Enter...")
     else:
         
         print("Não há pedidos cadastrados.")
@@ -185,13 +190,13 @@ def inserirProduto():
     print("Novo produto inserido com sucesso!")
 
 
-    op = input("Quer continuar inserindo produtos? s ou n? ")
+    op = input("Quer continuar inserindo produtos? S/N ")
     
-    match op:
+    match op.upper():
 
-        case "s":
+        case "S":
             inserirProduto()
-        case "n":
+        case "N":
             print("Saindo!")
             print("")
         case _:
@@ -219,7 +224,17 @@ def inserirPedido():
     print("Cadastro de Pedido")
     
     
+
     pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), input("Digite a quantidade. "), None, None)
+    
+    print("Sabores: ")
+    contador = 1
+    for sabor in sabores_sorvete:
+        
+        print(f"{contador} - {sabor}")
+        contador += 1
+
+    saborEscolhido = input("Digite o numero do sabor que deseja: ")
 
     produtoEscolhido = consultarBanco(f'''
     SELECT * FROM "Produtos"
@@ -240,9 +255,8 @@ def inserirPedido():
 
     manipularBanco(produto.sqlAtualizarProduto())
 
-    print(f"Compra de {pedido._quantidade} {produto._nome} por R$ {pedido._valorTotal} foi cadastrada")
-
-    print("Pedido cadastrado com sucesso!")
+    print(f"Compra de {pedido._quantidade} Sorvetes de {produto._nome} por R$ {pedido._valorTotal} foi cadastrada com sucesso!")
+    input("Enter...")
 
 def atualizarCliente():
 
@@ -260,6 +274,8 @@ def atualizarCliente():
         "Id" = {id}
 
     ''')
+    print("Cliente Atualizado com sucesso!")
+    input("Enter...")
 
 def atualizarProduto():
 
@@ -283,6 +299,8 @@ def atualizarProduto():
         "Id" = {id}      
     
     ''')
+    input("Enter...")
+
 def atualizarPedido():
 
     visualizarPedidos()
@@ -304,3 +322,52 @@ def atualizarPedido():
     
     ''')    
     print("Pedido atualizado com sucesso!")
+    input("Enter...")
+
+def deletarCliente():
+
+    visualizarClientes()
+
+    id = input("Digite o id do cliente que deseja excluir: ")
+
+    manipularBanco(f'''
+    
+    DELETE FROM "Clientes"
+    WHERE 
+    "Id" = {id}
+
+    ''')    
+    print("Cliente excluido com sucesso!")
+    input("Enter...")
+
+def deletarProduto():
+
+    visualizarProdutos()
+
+    id = input("Digite o id do produto que deseja excluir: ")
+
+    manipularBanco(f'''
+    
+    DELETE FROM "Produtos"
+    WHERE 
+    "Id" = {id}
+
+    ''')    
+    print("Produto excluido com sucesso!")
+    input("Enter...")
+
+def deletarPedido():
+
+    visualizarPedidos()
+
+    id = input("Digite o id do cliente que deseja excluir: ")
+
+    manipularBanco(f'''
+    
+    DELETE FROM "Pedidos"
+    WHERE 
+    "Id" = {id}
+
+    ''')    
+    print("Pedido excluido com sucesso!")
+    input("Enter...")
