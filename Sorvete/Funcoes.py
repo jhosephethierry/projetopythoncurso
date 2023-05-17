@@ -294,6 +294,16 @@ def escolherSabor():
 
     visualizarSabores()
 
+    sabor = Sabor(input("Digite o Id do Sabor escolhido. "))
+
+    saborEscolhido = consultarBanco(f'''
+    SELECT * FROM "Sabores"
+    WHERE "Id" = {sabor._idSabor}
+    ''')[0]
+
+
+    
+
 def inserirPedido():
 
     print("Cadastro de Pedido")
