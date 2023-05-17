@@ -4,7 +4,7 @@ class Sabor:
 
     def __init__(self, id, sabor) -> None:
         
-        self._id = id
+        self._idSabor = id
         self._sabor = sabor
         
     def sqlInserirSabor(self):

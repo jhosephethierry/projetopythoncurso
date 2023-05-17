@@ -21,6 +21,18 @@ class Produto:
 
         return sql
     
+    def sqlEscolherSabor(self):
+
+        sql = f'''
+        
+        UPDATE "Produtos"
+        SET
+        Sabor = '{self._sabor}
+        WHERE "Id" = {self._id}
+
+        '''
+
+        return sql
     
     def sqlAtualizarProduto(self):
 

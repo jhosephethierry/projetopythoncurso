@@ -275,7 +275,7 @@ def inserirSabores():
             print("")   
         
     
-    op = input("Quer visualizar seus clientes? s ou n? ")
+    op = input("Quer visualizar os sabores cadastrados? s ou n? ")
     
     match op:
 
@@ -294,14 +294,10 @@ def escolherSabor():
 
     visualizarSabores()
 
-
-
 def inserirPedido():
 
     print("Cadastro de Pedido")
     
-    
-
     pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), input("Digite a quantidade. "), None, None)
 
     produtoEscolhido = consultarBanco(f'''
