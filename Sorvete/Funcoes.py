@@ -74,7 +74,7 @@ def visualizarProdutos():
 
         for produto in produtos:
             print(f'''
-                ID - {produto[0]} | Categoria - {produto[1]} | Peso - {produto[2]} | Preço - R$ {produto[3]} | Estoque - {produto[4]}''')
+                ID - {produto[0]} | Categoria - {produto[1]} | Sabor - {produto[2]} | Peso - {produto[3]} | Preço - R$ {produto[4]} | Estoque - {produto[5]}''')
             
         input("Enter...")
 
@@ -124,7 +124,8 @@ def visualizarPedidos():
             ID - {pedido[0]}
             Nome do Cliente - {cliente[1]}
             ID do Produto - {pedido[2]}
-            Sabor do Produto - {produto[1]}
+            Produto - {produto[1]}
+            Sabor - {produto[2]}
             Quantidade - {pedido[3]}
             Valor - R${pedido[4]},00
             Data e Hora -  {pedido[5]}

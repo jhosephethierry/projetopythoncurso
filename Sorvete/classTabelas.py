@@ -32,6 +32,17 @@ def criarTabelas():
 
     conexaoBanco.manipularBanco('''
 
+    CREATE TABLE "Sabores"(
+    
+    "Id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "Sabor" varchar(255) NOT NULL
+    
+    )
+    
+    ''')
+
+    conexaoBanco.manipularBanco('''
+
     CREATE TABLE "Pedidos"(
     
     "Id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
