@@ -27,23 +27,25 @@ class Produto:
         
         UPDATE "Produtos"
         SET
-        Sabor = '{self._sabor}
-        WHERE "Id" = {self._id}
+        "Sabor" = '{self._sabor}'
+        WHERE "Id" = '{self._id}'
 
         '''
 
         return sql
     
-    def sqlAtualizarProduto(self):
+    def sqlAtualizarEstoqueProduto(self):
 
         sql = f'''
-
+        
         UPDATE "Produtos"
         SET
-        "Nome" = '{self._nome}', "Sabor" = '{self._sabor}', "Peso" = '{self._peso}', "Preço" = '{self._preço}', "Estoque" = '{self._estoque}'
-        WHERE "Id" = {self._id}
-        
+        "Estoque" = '{self._estoque}'
+        WHERE "Id" = '{self._id}'
+
         '''
 
         return sql
+    
+    
     

@@ -341,7 +341,7 @@ def inserirPedido():
 
     manipularBanco(pedido.sqlInserirPedido())
 
-    manipularBanco(produto.sqlAtualizarProduto())
+    manipularBanco(produto.sqlAtualizarEstoqueProduto())
 
     print(f"Compra de {pedido._quantidade} de {produto._nome} de {produto._sabor} por R$ {pedido._valorTotal} foi cadastrada com sucesso!")
     input("")
@@ -380,11 +380,11 @@ def atualizarProduto():
     
     UPDATE "Produtos"
     SET
-       "Nome" = '{nome}'
-       "Sabor" = '{sabor}'
-       "Peso" = '{peso}'     
-       "Preço" = '{preço}'    
-       "Estoque" = '{estoque}'  
+        "Nome" = '{nome}'
+        'Sabor' = '{sabor}'
+        "Peso" = '{peso}'     
+        "Preço" = '{preço}'    
+        "Estoque" = '{estoque}'  
     WHERE
         "Id" = '{id}'      
     
