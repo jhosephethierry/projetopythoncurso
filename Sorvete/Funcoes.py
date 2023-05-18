@@ -188,6 +188,7 @@ def inserirCliente():
         case "n":
             print("Saindo!")
             print("")
+            breakpoint
         case _:
             print("Digite uma opção válida.")
             print("")   
@@ -202,6 +203,7 @@ def inserirCliente():
         case "n":
             print("Saindo!")
             print("") 
+            breakpoint
         case _:
             print("Digite uma opção válida.")
             print("")
@@ -228,6 +230,7 @@ def inserirProduto():
         case "N":
             print("Saindo!")
             print("")
+            breakpoint
         case _:
             print("Digite uma opção válida.")
             print("")   
@@ -241,7 +244,8 @@ def inserirProduto():
             visualizarProdutos()
         case "n":
             print("Saindo!")
-            print("") 
+            print("")
+            breakpoint
         case _:
             print("Digite uma opção válida.")
             print("")
@@ -269,6 +273,7 @@ def inserirSabores():
         case "n":
             print("Saindo!")
             print("")
+            breakpoint
         case _:
             print("Digite uma opção válida.")
             print("")   
@@ -283,6 +288,7 @@ def inserirSabores():
         case "n":
             print("Saindo!")
             print("") 
+            breakpoint
         case _:
             print("Digite uma opção válida.")
             print("")
