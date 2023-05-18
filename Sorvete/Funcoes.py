@@ -379,16 +379,16 @@ def atualizarProduto():
     
     UPDATE "Produtos"
     SET
-        "Nome" = '{nome}'
-        'Sabor' = '{sabor}'
-        "Peso" = '{peso}'     
-        "Preço" = '{preço}'    
+        "Nome" = '{nome}',
+        "Sabor" = '{sabor}',
+        "Peso" = '{peso}',     
+        "Preço" = '{preço}',    
         "Estoque" = '{estoque}'  
     WHERE
         "Id" = '{id}'      
     
     ''')
-    input("Enter...")
+   
 
 def atualizarPedido():
 
@@ -403,8 +403,8 @@ def atualizarPedido():
     
     UPDATE "Pedidos"
     SET
-       "Id_Cliente" = '{idCliente}'     
-       "Id_Produto" = '{idProduto}'     
+       "Id_Cliente" = '{idCliente}',    
+       "Id_Produto" = '{idProduto}',     
        "Quantidade" = '{qtd}'      
     WHERE
         "Id" = '{id}'      
