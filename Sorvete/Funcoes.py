@@ -309,7 +309,7 @@ def escolherSabor():
     
     UPDATE "Produtos"
     SET
-        "Sabor" = '{sabor}'s
+        "Sabor" = '{sabor}'
 
     ''')
     print(f"Você escolheu {sabor}.")
