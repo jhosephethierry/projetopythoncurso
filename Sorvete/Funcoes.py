@@ -48,10 +48,9 @@ def visualizarClientes():
         print("")
 
         for cliente in clientes:
-            print(f'''
-            ID - {cliente[0]}
-            Nome - {cliente[1]}
-            ''')
+            print(f"Id - {cliente[0]} | Nome - {cliente[1]}")
+
+        print("")
             
     else:
         
@@ -74,9 +73,9 @@ def visualizarProdutos():
         print("")
 
         for produto in produtos:
-            print(f'''
-                Id - {produto[0]} | Produto - {produto[1]} | Sabor - {produto[2]} | Peso - {produto[3]} | Preço - R$ {produto[4]} | Estoque - {produto[5]}''')
-            
+            print(f"Id - {produto[0]} | Produto - {produto[1]} | Sabor - {produto[2]} | Peso - {produto[3]} | Preço - R$ {produto[4]} | Estoque - {produto[5]}")
+        
+        print("")
         input("Enter...")
 
     else:
@@ -101,8 +100,8 @@ def visualizarSabores():
         print("")
 
         for sabor in sabores:
-            print(f'''
-                Id - {sabor[0]} | Sabor - {sabor[1]}''')
+            print(f"Id - {sabor[0]} | Sabor - {sabor[1]}")
+        print("")
             
         input("Enter...")
 
