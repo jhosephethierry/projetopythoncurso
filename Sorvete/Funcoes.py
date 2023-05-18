@@ -326,10 +326,10 @@ def inserirPedido():
 
     produtoEscolhido = consultarBanco(f'''
     SELECT * FROM "Produtos"
-    WHERE "Id" = {pedido._idProduto}
+    WHERE "Id" = '{pedido._idProduto}'
     ''')[0]
 
-    produto = Produto(produtoEscolhido[0], produtoEscolhido[1], produtoEscolhido[2], produtoEscolhido[3],produtoEscolhido[4])
+    produto = Produto(produtoEscolhido[0], produtoEscolhido[1], produtoEscolhido[2], produtoEscolhido[3],produtoEscolhido[4],produtoEscolhido[5])
 
     if int(produto._estoque) < int(pedido._quantidade):
         print("Não há estoque suficiente.")
@@ -343,8 +343,8 @@ def inserirPedido():
 
     manipularBanco(produto.sqlAtualizarProduto())
 
-    print(f"Compra de {pedido._quantidade} Sorvetes de {produto._nome} por R$ {pedido._valorTotal} foi cadastrada com sucesso!")
-    input("Enter...")
+    print(f"Compra de {pedido._quantidade} de {produto._nome} de {produto._sabor} por R$ {pedido._valorTotal} foi cadastrada com sucesso!")
+    input("")
 
 def atualizarCliente():
 
@@ -359,7 +359,7 @@ def atualizarCliente():
     SET
         "Nome" = '{nome}'
     WHERE 
-        "Id" = {id}
+        "Id" = '{id}'
 
     ''')
     print("Cliente Atualizado com sucesso!")
@@ -371,6 +371,7 @@ def atualizarProduto():
 
     id = input("Digite o id do produto que deseja atualizar: ")
     nome = input("DIgite o nome do produto: ")
+    sabor = escolherSabor()
     peso = input("Digite o peso do produto: ")
     preço = input("Digite o preço do produto: ")
     estoque = input("Digite o estoque do produto: ")
@@ -379,12 +380,13 @@ def atualizarProduto():
     
     UPDATE "Produtos"
     SET
-       "Nome" = '{nome}'     
-       "peso" = {peso}     
-       "preço" = {preço}    
-       "estoque" = {estoque}  
+       "Nome" = '{nome}'
+       "Sabor"= '{sabor}'
+       "Peso" = '{peso}'     
+       "Preço" = '{preço}'    
+       "Estoque" = '{estoque}'  
     WHERE
-        "Id" = {id}      
+        "Id" = '{id}'      
     
     ''')
     input("Enter...")
