@@ -322,7 +322,7 @@ def inserirPedido():
 
     print("Cadastro de Pedido")
     
-    pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), input("Digite a quantidade. "), None, None)
+    pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), None, input("Digite a quantidade. "), None, None)
 
     produtoEscolhido = consultarBanco(f'''
     SELECT * FROM "Produtos"
