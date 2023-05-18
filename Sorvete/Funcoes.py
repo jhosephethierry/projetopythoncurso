@@ -309,7 +309,7 @@ def escolherSabor():
     
     UPDATE "Produtos"
     SET
-        "Sabor" = '{sabor}'
+    "Sabor" = '{sabor}'
 
     ''')
     print(f"Você escolheu {sabor}.")
@@ -370,7 +370,7 @@ def atualizarProduto():
     visualizarProdutos()
 
     id = input("Digite o id do produto que deseja atualizar: ")
-    nome = input("DIgite o nome do produto: ")
+    nome = input("Digite o nome do produto: ")
     sabor = escolherSabor()
     peso = input("Digite o peso do produto: ")
     preço = input("Digite o preço do produto: ")
@@ -381,7 +381,7 @@ def atualizarProduto():
     UPDATE "Produtos"
     SET
        "Nome" = '{nome}'
-       "Sabor"= '{sabor}'
+       "Sabor" = '{sabor}'
        "Peso" = '{peso}'     
        "Preço" = '{preço}'    
        "Estoque" = '{estoque}'  

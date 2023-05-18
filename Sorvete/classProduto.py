@@ -40,7 +40,7 @@ class Produto:
 
         UPDATE "Produtos"
         SET
-        "Nome" = '{self._nome}', Sabor = '{self._sabor}', "Peso" = '{self._peso}', "Preço" = '{self._preço}', "Estoque" = '{self._estoque}'
+        "Nome" = '{self._nome}', "Sabor" = '{self._sabor}', "Peso" = '{self._peso}', "Preço" = '{self._preço}', "Estoque" = '{self._estoque}'
         WHERE "Id" = {self._id}
         
         '''
