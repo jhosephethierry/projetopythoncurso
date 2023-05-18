@@ -309,7 +309,7 @@ def escolherSabor():
     
     UPDATE "Produtos"
     SET
-        "Sabor" = '{sabor}'
+        "Sabor" = '{sabor}'s
 
     ''')
     print(f"Você escolheu {sabor}.")
@@ -322,7 +322,7 @@ def inserirPedido():
 
     print("Cadastro de Pedido")
     
-    pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), input("Digite a quantidade. "), None, None)
+    pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), None, input("Digite a quantidade. "), None, None)
 
     produtoEscolhido = consultarBanco(f'''
     SELECT * FROM "Produtos"
@@ -404,11 +404,11 @@ def atualizarPedido():
     
     UPDATE "Pedidos"
     SET
-       "Id_Cliente" = {idCliente}     
-       "Id_Produto" = {idProduto}     
-       "Quantidade" = {qtd}      
+       "Id_Cliente" = '{idCliente}'     
+       "Id_Produto" = '{idProduto}'     
+       "Quantidade" = '{qtd}'      
     WHERE
-        "Id" = {id}      
+        "Id" = '{id}'      
     
     ''')    
     print("Pedido atualizado com sucesso!")
@@ -424,7 +424,7 @@ def deletarCliente():
     
     DELETE FROM "Clientes"
     WHERE 
-    "Id" = {id}
+    "Id" = '{id}'
 
     ''')    
     print("Cliente excluido com sucesso!")
@@ -440,7 +440,7 @@ def deletarProduto():
     
     DELETE FROM "Produtos"
     WHERE 
-    "Id" = {id}
+    "Id" = '{id}'
 
     ''')    
     print("Produto excluido com sucesso!")
@@ -456,7 +456,7 @@ def deletarPedido():
     
     DELETE FROM "Pedidos"
     WHERE 
-    "Id" = {id}
+    "Id" = '{id}'
 
     ''')    
     print("Pedido excluido com sucesso!")
