@@ -322,14 +322,14 @@ def inserirPedido():
 
     print("Cadastro de Pedido")
     
-    pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), None, input("Digite a quantidade. "), None, None)
+    pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), input("Digite a quantidade. "), None, None)
 
     produtoEscolhido = consultarBanco(f'''
     SELECT * FROM "Produtos"
     WHERE "Id" = '{pedido._idProduto}'
     ''')[0]
 
-    produto = Produto(produtoEscolhido[0], produtoEscolhido[1], produtoEscolhido[2], produtoEscolhido[3],produtoEscolhido[4],produtoEscolhido[5])
+    produto = Produto(produtoEscolhido[0], produtoEscolhido[1], produtoEscolhido[2], produtoEscolhido[3], produtoEscolhido[4], produtoEscolhido[5])
 
     if int(produto._estoque) < int(pedido._quantidade):
         print("Não há estoque suficiente.")

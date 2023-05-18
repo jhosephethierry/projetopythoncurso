@@ -49,6 +49,7 @@ def criarTabelas():
     "Id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "Id_Cliente" int,
     "Id_Produto" int,
+    "Sabor" varchar(255) NOT NULL,
     "Quantidade" int NOT NULL default 1,
     "Valor Total" numeric(2) NOT NULL,
     "Horário" timestamp default CURRENT_TIMESTAMP(0),

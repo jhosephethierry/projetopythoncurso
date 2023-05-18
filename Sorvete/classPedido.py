@@ -1,12 +1,12 @@
 
 class Pedido:
     
-    def __init__(self, id, idCliente, idProduto, saborProduto, quantidade, valorTotal, timestamp):
+    def __init__(self, id, idCliente, idProduto, sabor, quantidade, valorTotal, timestamp):
 
         self._id = id
         self._idCliente = idCliente
         self._idProduto = idProduto
-        self._saborProduto = saborProduto
+        self._sabor = sabor
         self._quantidade = quantidade
         self._valorTotal = valorTotal
         self._timestamp = timestamp
@@ -16,7 +16,7 @@ class Pedido:
         sql = f'''
         
         INSERT INTO "Pedidos"
-        VALUES(default, '{self._idCliente}', '{self._idProduto}', '{self._saborProduto}', '{self._quantidade}', '{self._valorTotal}', default)
+        VALUES(default, '{self._idCliente}', '{self._idProduto}','{self._sabor}', '{self._quantidade}', '{self._valorTotal}', default)
         
         '''
 
