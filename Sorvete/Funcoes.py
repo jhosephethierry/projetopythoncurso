@@ -207,7 +207,8 @@ def inserirCliente():
         case _:
             print("Digite uma opção válida.")
             print("")
-    
+
+    breakpoint
 
 
 def inserirProduto():
@@ -234,7 +235,8 @@ def inserirProduto():
         case _:
             print("Digite uma opção válida.")
             print("")   
-        
+    
+    breakpoint
     
     op = input("Quer visualizar seus produtos? s ou n? ")
     
@@ -250,7 +252,7 @@ def inserirProduto():
             print("Digite uma opção válida.")
             print("")
 
-
+    breakpoint
 
 def inserirSabores():
 
@@ -293,7 +295,7 @@ def inserirSabores():
             print("Digite uma opção válida.")
             print("")
 
-
+    breakpoint
 
 def escolherSabor():
 
@@ -320,8 +322,6 @@ def escolherSabor():
     print(f"Você escolheu {sabor}.")
     print("")
 
-
-    
 
 def inserirPedido():
 
