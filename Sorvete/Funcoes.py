@@ -215,7 +215,7 @@ def inserirProduto():
 
     print("Cadastro de Produto")
 
-    produto = Produto(None, input("Digite o nome do produto. "), escolherSabor(), input("Digite o peso. "), input("Digite o preço. R$ "), input("Digite o estoque. "))
+    produto = Produto(None, input("Digite o nome do produto. "), escolherSabor(), input("Digite o peso. "), float(input("Digite o preço. R$ ")), input("Digite o estoque. "))
 
     manipularBanco(produto.sqlInserirProduto())
 
@@ -235,8 +235,7 @@ def inserirProduto():
         case _:
             print("Digite uma opção válida.")
             print("")   
-    
-    breakpoint
+
     
     op = input("Quer visualizar seus produtos? s ou n? ")
     
@@ -317,8 +316,10 @@ def escolherSabor():
     UPDATE "Produtos"
     SET
     "Sabor" = '{sabor}'
+    WHERE "Id" = '{idSabor}'
 
     ''')
+
     print(f"Você escolheu {sabor}.")
     print("")
 
