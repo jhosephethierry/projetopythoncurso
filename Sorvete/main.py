@@ -6,9 +6,10 @@ while True:
     try:
         print('''
         
-    Sorveteria Sorriso
+    Sorveteria 
 
-    Escolha uma opção no menu abaixo.
+    Escolha uma opção no menu abaixo:
+
     1. Menu Clientes  
     2. Menu Produtos 
     3. Menu Pedidos  

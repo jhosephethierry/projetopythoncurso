@@ -63,7 +63,7 @@ def visualizarProdutos():
     produtos = consultarBanco('''
 
     SELECT * FROM "Produtos"
-    ORDER BY "Nome" ASC
+    ORDER BY "Id" ASC
 
     ''')
 
@@ -154,9 +154,9 @@ def visualizarPedidos():
             ID do Produto - {pedido[2]}
             Produto - {produto[1]}
             Sabor - {produto[2]}
-            Quantidade - {pedido[3]}
-            Valor - R${pedido[4]},00
-            Data e Hora -  {pedido[5]}
+            Quantidade - {pedido[4]}
+            Valor - R${pedido[5]}
+            Data e Hora -  {pedido[6]}
             
             
             ''')
@@ -300,33 +300,36 @@ def escolherSabor():
 
     visualizarSabores()
 
-    idSabor = input("Digite o id do sabor escolhido. ")
+    id = input("Digite o id do sabor escolhido. ")
 
     saborEscolhido = consultarBanco(f'''
     
     SELECT * FROM "Sabores"
-    WHERE "Id" = '{idSabor}'
+    WHERE "Id" = '{id}'
 
     ''')[0]
 
     sabor = saborEscolhido[1]
 
-    manipularBanco(f'''
+    # manipularBanco(f'''
     
-    UPDATE "Produtos"
-    SET
-    "Sabor" = '{sabor}'
-    WHERE "Id" = '{idSabor}'
+    # UPDATE "Produtos"
+    # SET
+    # "Sabor" = '{sabor}'
+    # WHERE "Id" = '{id}'
 
-    ''')
+    # ''')
 
     print(f"Você escolheu {sabor}.")
     print("")
+    return sabor
 
 
 def inserirPedido():
 
     print("Cadastro de Pedido")
+
+    visualizarClientes()
     
     pedido = Pedido(None, input("Digite o id do cliente. "), input("Digite o id do produto. "), None, input("Digite a quantidade. "), None, None)
 
@@ -402,9 +405,13 @@ def atualizarPedido():
     visualizarPedidos()
 
     id = input("Digite o id do pedido que deseja atualizar: ")
-    idCliente = input("Digite o id do Cliente que deseja atualizar: ")
-    idProduto = input("Digite o id do Produto que deseja atualizar: ")
-    qtd = input("Digite a quantidade do produto: ")
+    visualizarClientes()
+    idCliente = input("Digite o id do novo Cliente: ")
+    visualizarProdutos()
+    idProduto = input("Digite o id do novo Produto: ")
+    valorProduto = consultarBanco(f'''Select "Preço" From "Produtos" WHERE "Id" = '{idProduto}' ''')[0][0]
+    qtd = int(input("Digite a quantidade do produto: "))
+    valorTotal = qtd * valorProduto
  
     manipularBanco(f'''
     
@@ -412,11 +419,13 @@ def atualizarPedido():
     SET
        "Id_Cliente" = '{idCliente}',    
        "Id_Produto" = '{idProduto}',     
-       "Quantidade" = '{qtd}'      
+       "Quantidade" = '{qtd}',
+       "Valor Total" = '{valorTotal}'      
     WHERE
         "Id" = '{id}'      
     
     ''')    
+
     print("Pedido atualizado com sucesso!")
     input("Enter...")
 

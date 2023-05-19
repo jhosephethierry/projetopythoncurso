@@ -15,7 +15,7 @@ class Produto:
         sql = f'''
         
         INSERT INTO "Produtos"
-        Values(default, '{self._nome}', '{self._sabor}', '{self._peso}', '{self._preço}', '{self._estoque}')
+        Values(default, '{self._nome}', '{self._sabor}', '{self._peso}', '{self._preço:.2f}', '{self._estoque}')
 
         '''
 
