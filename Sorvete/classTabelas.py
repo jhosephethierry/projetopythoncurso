@@ -24,7 +24,7 @@ def criarTabelas():
     "Nome" varchar(255) NOT NULL,
     "Sabor" varchar(255) NOT NULL,
     "Peso" varchar(255) NOT NULL,
-    "Preço" numeric(2) NOT NULL default 0,
+    "Preço" double precision NOT NULL default 0,
     "Estoque" int NOT NULL default 0
     
     )
@@ -51,7 +51,7 @@ def criarTabelas():
     "Id_Produto" int,
     "Sabor" varchar(255) NOT NULL,
     "Quantidade" int NOT NULL default 1,
-    "Valor Total" numeric(2) NOT NULL,
+    "Valor Total" double precision NOT NULL,
     "Horário" timestamp default CURRENT_TIMESTAMP(0),
     CONSTRAINT fk_cliente
         FOREIGN KEY("Id_Cliente")

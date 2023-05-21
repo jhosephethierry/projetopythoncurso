@@ -51,12 +51,16 @@ def visualizarClientes():
             print(f"Id - {cliente[0]} | Nome - {cliente[1]}")
 
         print("")
+
+        breakpoint
             
     else:
         
         print("Não há clientes cadastrados.")
 
-    input("Enter...")
+        breakpoint
+
+    input("Enter para continuar. ")
 
 def visualizarProdutos():
 
@@ -73,17 +77,22 @@ def visualizarProdutos():
         print("")
 
 
-        print("ID  | PRODUTO  | SABOR | PESO  | PREÇO  | ESTOQUE \n")
+        print("ID | PRODUTO | PESO | SABOR | PREÇO | ESTOQUE \n")
 
         for produto in produtos:
-            print(f" {produto[0]} | {produto[1]} | {produto[2]} | {produto[3]} | R$ {produto[4]} | {produto[5]} \n")
+            print(f" {produto[0]} | {produto[1]} | {produto[3]} | {produto[2]} | R$ {produto[4]} | {produto[5]} \n")
         
         print("")
-        input("Enter...")
+
+        breakpoint
+
+        input("Enter para continuar. ")
 
     else:
         
         print("Não há produtos cadastrados.")
+
+        breakpoint
 
     print("")
 
@@ -106,11 +115,15 @@ def visualizarSabores():
             print(f"Id - {sabor[0]} | Sabor - {sabor[1]}")
         print("")
             
-        input("Enter...")
+        input("Enter para continuar. ")
+    
+        breakpoint
 
     else:
         
         print("Não há sabores cadastrados.")
+        
+        breakpoint
 
     print("")
 
@@ -124,7 +137,7 @@ def visualizarPedidos():
 
     ''')
 
-    input("Enter...")
+    input("Enter para continuar. ")
 
     if pedidos:
 
@@ -163,10 +176,16 @@ def visualizarPedidos():
             
             -----------------------------------------
             ''')
-        input("Enter...")
+
+        breakpoint
+
+        input("Enter para continuar. ")
+        
     else:
         
         print("Não há pedidos cadastrados.")
+
+        breakpoint
 
 
 
@@ -203,6 +222,7 @@ def inserirCliente():
 
         case "s":
             visualizarClientes()
+            breakpoint
         case "n":
             print("Saindo!")
             print("") 
@@ -289,6 +309,7 @@ def inserirSabores():
 
         case "s":
             visualizarSabores()
+            breakpoint
         case "n":
             print("Saindo!")
             print("") 
@@ -375,7 +396,7 @@ def atualizarCliente():
 
     ''')
     print("Cliente Atualizado com sucesso!")
-    input("Enter...")
+    input("Enter para continuar. ")
 
 def atualizarProduto():
 
@@ -430,7 +451,7 @@ def atualizarPedido():
     ''')    
 
     print("Pedido atualizado com sucesso!")
-    input("Enter...")
+    input("Enter para continuar. ")
 
 def deletarCliente():
 
@@ -446,7 +467,7 @@ def deletarCliente():
 
     ''')    
     print("Cliente excluido com sucesso!")
-    input("Enter...")
+    input("Enter para continuar. ")
 
 def deletarProduto():
 
@@ -462,7 +483,7 @@ def deletarProduto():
 
     ''')    
     print("Produto excluido com sucesso!")
-    input("Enter...")
+    input("Enter para continuar. ")
 
 def deletarPedido():
 
@@ -478,4 +499,4 @@ def deletarPedido():
 
     ''')    
     print("Pedido excluido com sucesso!")
-    input("Enter...")
+    input("Enter para continuar. ")
