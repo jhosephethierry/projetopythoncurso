@@ -165,9 +165,9 @@ def visualizarPedidos():
 
             print(f'''
             
-            ID - {pedido[0]}
+            Id - {pedido[0]}
             Nome do Cliente - {cliente[1]}
-            ID do Produto - {pedido[2]} 
+            Id do Produto - {pedido[2]} 
             Produto - {produto[1]}
             Sabor - {produto[2]}
             Quantidade - {pedido[4]} 
