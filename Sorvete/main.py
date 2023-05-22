@@ -6,7 +6,7 @@ while True:
     try:
         print('''
         
-    Sorveteria 
+    Sorveteria PYTHON 
 
     Escolha uma opção no menu abaixo:
 

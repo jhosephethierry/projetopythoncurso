@@ -247,13 +247,12 @@ def inserirProduto():
 
     op = input("Quer continuar inserindo produtos? s ou n? ")
     
-    match op.upper():
+    match op:
 
-        case "S":
+        case "s":
             inserirProduto()
-        case "N":
+        case "n":
             print("Saindo!")
-            print("")
             breakpoint
         case _:
             print("Digite uma opção válida.")
@@ -296,7 +295,6 @@ def inserirSabores():
             inserirSabores()
         case "n":
             print("Saindo!")
-            print("")
             breakpoint
         case _:
             print("Digite uma opção válida.")
@@ -335,14 +333,6 @@ def escolherSabor():
 
     sabor = saborEscolhido[1]
 
-    # manipularBanco(f'''
-    
-    # UPDATE "Produtos"
-    # SET
-    # "Sabor" = '{sabor}'
-    # WHERE "Id" = '{id}'
-
-    # ''')
 
     print(f"Você escolheu {sabor}.")
     print("")
@@ -396,7 +386,38 @@ def atualizarCliente():
 
     ''')
     print("Cliente Atualizado com sucesso!")
-    input("Enter para continuar. ")
+    input("Enter...")
+
+    op = input("Quer continuar atualizando seus clientes? s ou n? ")
+    
+    match op:
+
+        case "s":
+            atualizarCliente()
+        case "n":
+            print("Saindo!")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")   
+
+    
+    op = input("Quer visualizar seus clientes? s/n ")
+    
+    match op:
+
+        case "s":
+            visualizarClientes()
+        case "n":
+            print("Saindo!")
+            print("")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")
+
+    breakpoint
+
 
 def atualizarProduto():
 
@@ -422,6 +443,39 @@ def atualizarProduto():
         "Id" = '{id}'      
     
     ''')
+    print("Produto atualizado com sucesso!")
+    input("Enter...")
+
+    op = input("Quer continuar atualizando produtos? s/n? ")
+    
+    match op:
+
+        case "s":
+            atualizarProduto()
+        case "n":
+            print("Saindo!")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")   
+
+    
+    op = input("Quer visualizar seus produtos? s ou n? ")
+    
+    match op:
+
+        case "s":
+            visualizarProdutos()
+        case "n":
+            print("Saindo!")
+            print("")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")
+
+    breakpoint
+
    
 
 def atualizarPedido():
@@ -451,7 +505,38 @@ def atualizarPedido():
     ''')    
 
     print("Pedido atualizado com sucesso!")
-    input("Enter para continuar. ")
+    input("Enter...")
+
+    op = input("Quer continuar atualizando seus pedidos? s/n?: ")
+    
+    match op:
+
+        case "s":
+            atualizarPedido()
+        case "n":
+            print("Saindo!")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")   
+
+    
+    op = input("Quer visualizar seus pedidos? s/n?: ")
+    
+    match op:
+
+        case "s":
+            visualizarPedidos()
+        case "n":
+            print("Saindo!")
+            print("")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")
+
+    breakpoint
+
 
 def deletarCliente():
 
@@ -469,6 +554,36 @@ def deletarCliente():
     print("Cliente excluido com sucesso!")
     input("Enter para continuar. ")
 
+    op = input("Quer continuar deletando clientes? s/n?:  ")
+    
+    match op:
+
+        case "s":
+            deletarCliente()
+        case "n":
+            print("Saindo!")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")   
+
+    
+    op = input("Quer visualizar seus clientes? s ou n? ")
+    
+    match op:
+
+        case "s":
+            visualizarClientes()
+        case "n":
+            print("Saindo!")
+            print("")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")
+
+    breakpoint
+
 def deletarProduto():
 
     visualizarProdutos()
@@ -485,11 +600,41 @@ def deletarProduto():
     print("Produto excluido com sucesso!")
     input("Enter para continuar. ")
 
+    op = input("Quer continuar deletando produtos? s/n ")
+    
+    match op:
+
+        case "s":
+            atualizarProduto()
+        case "n":
+            print("Saindo!")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")   
+
+    
+    op = input("Quer visualizar seus produtos? s ou n? ")
+    
+    match op:
+
+        case "s":
+            visualizarProdutos()
+        case "n":
+            print("Saindo!")
+            print("")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")
+
+    breakpoint
+
 def deletarPedido():
 
     visualizarPedidos()
 
-    id = input("Digite o id do cliente que deseja excluir: ")
+    id = input("Digite o id do pedido que deseja excluir: ")
 
     manipularBanco(f'''
     
@@ -500,3 +645,33 @@ def deletarPedido():
     ''')    
     print("Pedido excluido com sucesso!")
     input("Enter para continuar. ")
+
+    op = input("Quer continuar deletando pedidos? s/n ")
+    
+    match op:
+
+        case "s":
+            deletarPedido()
+        case "n":
+            print("Saindo!")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")   
+
+    
+    op = input("Quer visualizar seus pedidos? s ou n? ")
+    
+    match op:
+
+        case "s":
+            visualizarPedidos()
+        case "n":
+            print("Saindo!")
+            print("")
+            breakpoint
+        case _:
+            print("Digite uma opção válida.")
+            print("")
+
+    breakpoint
